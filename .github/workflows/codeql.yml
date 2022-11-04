@@ -56,6 +56,9 @@ jobs:
     # If this step fails, then you should remove it and run the build manually (see below)
     - name: Autobuild
       uses: github/codeql-action/autobuild@v2
+      with:
+        output: ${{github.workspace}}/results
+
 
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 https://git.io/JvXDl
@@ -70,3 +73,9 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
+    - name: Archive codeql results
+      uses: actions/upload-artifact@v3
+      with:
+        # Upload entire repository
+        name: code-coverage-report
+        path: ${{github.workspace}}/results
