@@ -56,8 +56,6 @@ jobs:
     # If this step fails, then you should remove it and run the build manually (see below)
     - name: Autobuild
       uses: github/codeql-action/autobuild@v2
-      with:
-        output: ${{github.workspace}}/results
 
 
     # ℹ️ Command-line programs to run using the OS shell.
@@ -73,6 +71,8 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
+      with:
+        output: ${{github.workspace}}/results
     - name: Archive codeql results
       uses: actions/upload-artifact@v3
       with:
