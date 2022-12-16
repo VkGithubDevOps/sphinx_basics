@@ -1,6 +1,6 @@
 name: send email
 
-"on":
+on:
   push:
     branches: [ main ]
 
