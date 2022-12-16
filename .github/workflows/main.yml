@@ -11,7 +11,9 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-      
+    - name: create body
+      run: |
+        echo <!DOCTYPE html>\n<html>\n<body>\n<h1>HTML Links</h1>\n<p><a href="https://www.w3schools.com/">Visit W3Schools.com!</a></p>\n</body>\n</html>\n > ${{github.workspace}}/body.html
     - name: Send mail
       uses: dawidd6/action-send-mail@v2
       with:
@@ -24,7 +26,8 @@ jobs:
         # email subject
         subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
         # email body as text
-        body: '${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}<!DOCTYPE html><html><body><h1>HTML Links</h1><p><a href="https://www.w3schools.com/">Visit W3Schools.com!</a></p></body></html>'
+        body: '${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}'
+        html_body: file://${{github.workspace}}/body.html
         # comma-separated string, send email to
         to: veeresh.mcis@gmail.com
         # from email name
