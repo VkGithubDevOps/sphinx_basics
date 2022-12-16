@@ -43,6 +43,6 @@ jobs:
         # email body as text
         body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
         # comma-separated string, send email to
-        to: abc@gmail.com,xyz@gmail.com
+        to: veeresh.mcis@gmail.com
         # from email name
-        from: XYZ
+        from: veeresh.mcis@gmail.com
