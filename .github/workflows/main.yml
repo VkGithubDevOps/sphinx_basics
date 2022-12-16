@@ -13,7 +13,7 @@ jobs:
       uses: actions/checkout@v2
     - name: create body
       run: |
-        echo '<!DOCTYPE html>\n<html>\n<body>\n<h1>HTML Links</h1>\n<p><a href="https://www.w3schools.com/">Visit W3Schools.com!</a></p>\n</body>\n</html>' > ${{github.workspace}}/body.html
+        echo '<!DOCTYPE html><html><body><h1>HTML Links</h1><p><a href="https://www.w3schools.com/">Visit W3Schools.com!</a></p></body></html>' > ${{github.workspace}}/body.html
         cat ${{github.workspace}}/body.html
     - name: Send mail
       uses: dawidd6/action-send-mail@v3
